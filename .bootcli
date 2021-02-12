@@ -1,0 +1,8 @@
+{
+    "projectPackage": "com.somacode.somacode",
+    "path": "src/main/kotlin/com/somacode/somacode/",
+    "entityFolder": "entity",
+    "repositoryFolder": "repository",
+    "serviceFolder": "service",
+    "controllerFolder": "controller"
+}

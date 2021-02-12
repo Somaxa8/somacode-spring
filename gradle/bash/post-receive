@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+rm -rf /root/somacode/project
+git clone -b master /root/somacode/git /root/somacode/project
+bash -x /root/somacode/project/gradle/bash/deploy.sh
