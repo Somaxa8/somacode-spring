@@ -27,8 +27,8 @@ class SwaggerConfig {
     @Value("\${custom.protocol}") lateinit var protocol: String
 
     var web = "http://example:8080/"
-    var email = "admin@mercurio.com"
-    var name = "Mercurio"
+    var email = "admin@somacode.com"
+    var name = "Somacode"
     private val restPackage = SwaggerConfig::class.java.getPackage().name.substring(0, SwaggerConfig::class.java.getPackage().name.length - 6) + "controller"
 
 
