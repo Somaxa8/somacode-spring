@@ -30,7 +30,7 @@ class BlogCategoryService {
         return blogCategoryRepository.save(blogCategory)
     }
 
-    fun update(id: Long, request: BlogCategory, parentId: Long?): BlogCategory {
+    fun update(id: Long, title: String?, parentId: Long?): BlogCategory {
         if (parentId != null) {
             if (!blogCategoryRepository.existsById(parentId)) {
                 throw NotFoundException("parentId does not exist")
@@ -47,7 +47,7 @@ class BlogCategoryService {
             blogCategory.parent = null
         }
 
-        request.title?.let { blogCategory.title = it }
+        title?.let { blogCategory.title = it }
 
         return blogCategoryRepository.save(blogCategory)
     }

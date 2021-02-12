@@ -15,17 +15,19 @@ class BlogCategoryController {
 
     @PostMapping("/api/blogCategory")
     fun postBlogCategory(
-            //@RequestParam title: String
+            @RequestParam title: String,
+            @RequestParam parentId: Long
     ): ResponseEntity<BlogCategory> {
-        return ResponseEntity.status(HttpStatus.CREATED).body(blogCategoryService.create())
+        return ResponseEntity.status(HttpStatus.CREATED).body(blogCategoryService.create(title, parentId))
     }
 
     @PatchMapping("/api/blogCategory/{id}")
     fun pathBlogCategory(
-            //@PathVariable id: Long,
-            //@RequestParam(required = false) title: String?,
+            @PathVariable id: Long,
+            @RequestParam(required = false) title: String?,
+            @RequestParam(required = false) parentId: Long?
     ): ResponseEntity<BlogCategory> {
-        return ResponseEntity.status(HttpStatus.OK).body(blogCategoryService.update())
+        return ResponseEntity.status(HttpStatus.OK).body(blogCategoryService.update(id, title, parentId))
     }
 
     @DeleteMapping("/api/blogCategory/{id}")

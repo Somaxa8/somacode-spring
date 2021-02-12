@@ -38,7 +38,7 @@ class BlogService {
         return blogRepository.save(blog)
     }
 
-    fun update(id: Long, title: String?, description: String?, body: String, categoryId: Long?, bannerFile: MultipartFile?): Blog {
+    fun update(id: Long, title: String?, description: String?, body: String?, categoryId: Long?, bannerFile: MultipartFile?): Blog {
         val blog = findById(id)
         title?.let {
             if (it.isBlank()) throw IllegalArgumentException()
