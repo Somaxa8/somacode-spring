@@ -4,7 +4,9 @@ import com.somacode.somacode.entity.Blog
 import com.somacode.somacode.repository.BlogRepository
 import com.somacode.somacode.config.exception.NotFoundException
 import com.somacode.somacode.entity.Document
+import com.somacode.somacode.repository.criteria.BlogCriteria
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.domain.Page
 import org.springframework.stereotype.Service
 import org.springframework.web.multipart.MultipartFile
 import javax.transaction.Transactional
@@ -16,6 +18,7 @@ class BlogService {
     @Autowired lateinit var blogRepository: BlogRepository
     @Autowired lateinit var documentService: DocumentService
     @Autowired lateinit var blogCategoryService: BlogCategoryService
+    @Autowired lateinit var blogCriteria: BlogCriteria
 
 
     fun init() {
@@ -76,7 +79,7 @@ class BlogService {
         blogRepository.deleteById(id)
     }
 
-    fun findAll(): List<Blog> {
-        return blogRepository.findAll()
+    fun findFilterPageable(page: Int, size: Int, search: String?, categoryId: Long?): Page<Blog> {
+        return blogCriteria.findFilterPageable(page, size, search, categoryId)
     }
 }

@@ -13,4 +13,4 @@ class Blog(
         var banner: Document? = null,
         @ManyToOne
         var category: BlogCategory? = null
-)
+) : Auditing()
